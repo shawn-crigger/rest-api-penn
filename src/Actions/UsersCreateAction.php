@@ -25,14 +25,11 @@ final class UsersCreateAction
       $conn = $db->connect();
 
       $errors = [];
-      $errors = array_merge($val->validateName(($name)), $val->validateEmail($email, $email));
-
       $user_exists = $users_val->getUerByEmailOrName($response, $email, $name);
-      if (TRUE == $user_exists) {
-        $user_error = ['success' => false, 'error' => 'User already exists'];
-        array_merge($errors, $user_error);
-        unset($user_error);
+      if ($user_exists != FALSE) {
+        $errors = ['success' => false, 'error' => 'User already exists'];
       }
+      $errors = array_merge($errors, $val->validateName(($name)), $val->validateEmail($email, $email));
 
       if (!empty($errors) && count($errors) > 0) {
         $response->getBody()->write(json_encode($errors));
