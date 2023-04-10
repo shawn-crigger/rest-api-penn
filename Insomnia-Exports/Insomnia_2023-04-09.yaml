@@ -1,0 +1,278 @@
+_type: export
+__export_format: 4
+__export_date: 2023-04-10T02:08:09.877Z
+__export_source: insomnia.desktop.app:v2022.7.5
+resources:
+  - _id: req_bd964eb7fca14d7a8afc9171259b4e0d
+    parentId: fld_de958242ee2a43d2bf066d3da3fa3223
+    modified: 1681073221899
+    created: 1681073159477
+    url: http://localhost:8888/users
+    name: Get all Users
+    description: >-
+      ## Route`/users` to fetch all users from the database
+
+
+      Create a new `GET` request to `http://localhost:8888/users` and you should get a JSON response of all your users.
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - id: pair_ca281dd414d7430086c902d03c88d2d7
+        name: Content-Type
+        value: application/json
+        description: ""
+    authentication: {}
+    metaSortKey: -1681073159477
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_de958242ee2a43d2bf066d3da3fa3223
+    parentId: wrk_3fb66cb8f4334050a54c1910246d0a35
+    modified: 1681073125469
+    created: 1681073125469
+    name: RESTAPI
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1681073125469
+    _type: request_group
+  - _id: wrk_3fb66cb8f4334050a54c1910246d0a35
+    parentId: null
+    modified: 1681072803456
+    created: 1680793102476
+    name: New Document
+    description: A very simople REST API test
+    scope: design
+    _type: workspace
+  - _id: req_e2e70f0805df413f825f43bbfa21b2c9
+    parentId: fld_de958242ee2a43d2bf066d3da3fa3223
+    modified: 1681092027827
+    created: 1680793102480
+    url: http://localhost:8888/users
+    name: Add User
+    description: |
+      
+      Creaet a new POST request to `http://localhost:8888/users`
+      Setup a `multipart/form-data` body with the parameters
+
+      - name: User Name of the new user
+      - email: A valid email address of the new user
+
+      Setup your `Headers` with the following headers:
+
+      - `Content-Type`: `multipart/form-data`
+      - `Encoding-Type`: `raw`
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - name: name
+          value: Mittens The Wonderdog
+          id: pair_e204e26c1952456ca8bbb7f5e4d38bb5
+        - id: pair_b178de5158e146638fd455d04cad06f2
+          name: email
+          value: mittendogs@gmail.com
+          description: ""
+    parameters: []
+    headers:
+      - id: pair_47a6b6f00d4244e79b74187e162d61a1
+        name: Encoding-Type
+        value: raw
+        description: ""
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_5ad5ceb81474485c95fdbae738443369
+        disabled: false
+    authentication: {}
+    metaSortKey: -1681073159470.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_304b5c4b31c7443e8b1a7405ace6aa0a
+    parentId: fld_de958242ee2a43d2bf066d3da3fa3223
+    modified: 1681091946225
+    created: 1680838645620
+    url: http://localhost:8888/users/1/earn
+    name: Earn User Points
+    description: >-
+      ## Route `/users/{id}/earn` to add points to a user
+
+
+      Creaet a new POST request to `http://localhost:8888/users/{id}/earn` replace the `id` with the ID of the user you want to change the points to.
+
+
+      Setup a `multipart/form-data` body with the parameters
+
+
+      - points: number of points you want to add to the current user's point balance.
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - id: pair_b178de5158e146638fd455d04cad06f2
+          name: points
+          value: "200"
+          description: ""
+    parameters: []
+    headers:
+      - id: pair_47a6b6f00d4244e79b74187e162d61a1
+        name: Encoding-Type
+        value: raw
+        description: ""
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_5ad5ceb81474485c95fdbae738443369
+        disabled: false
+    authentication: {}
+    metaSortKey: -1681073159464.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9b3f7494774f44bebe13a518cb49f494
+    parentId: fld_de958242ee2a43d2bf066d3da3fa3223
+    modified: 1681091959363
+    created: 1680878650722
+    url: http://localhost:8888/users/1/redeem
+    name: Redeem User Points
+    description: >
+      ## Route `/users/{id}/redeem` to reduce points from a user
+
+
+      Creaet a new POST request to `http://localhost:8888/users/{id}/redeem` replace the `id` with the ID of the user you want to change the points to.
+
+
+      Setup a `multipart/form-data` body with the parameters
+
+
+      - points: number of points you want to subtract from the current user's point balance.
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - id: pair_b178de5158e146638fd455d04cad06f2
+          name: points
+          value: "300"
+          description: ""
+    parameters: []
+    headers:
+      - id: pair_47a6b6f00d4244e79b74187e162d61a1
+        name: Encoding-Type
+        value: raw
+        description: ""
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_5ad5ceb81474485c95fdbae738443369
+        disabled: false
+    authentication: {}
+    metaSortKey: -1681073159452
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_671ff3ee0bc34a109280808402a8e4ed
+    parentId: fld_de958242ee2a43d2bf066d3da3fa3223
+    modified: 1681079002830
+    created: 1680794011023
+    url: http://localhost:8888/users/9
+    name: Delete User
+    description: >-
+      ## Route `/users/{id}` To delete a user from the database
+
+
+      Create a new `DELETE` request to `http://localhost:8888/users/{id}` the user will be deleted if it exists. You will receive a JSON response on success or failure. But you can verify using the `GET` `/users` request.
+    method: DELETE
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - id: pair_6367b81df3fa47119d2e801c00f4d105
+        name: Content-Type
+        value: application/json
+        description: ""
+      - id: pair_6eaf7d2ca6fd4d9ab49e50561bb80953
+        name: Encoding-Type
+        value: raw
+        description: ""
+    authentication: {}
+    metaSortKey: -1681073159427
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_91ecea65c00b0e4414c54748c1052bc18a7c879f
+    parentId: wrk_3fb66cb8f4334050a54c1910246d0a35
+    modified: 1680793102479
+    created: 1680793102479
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1680793102479
+    _type: environment
+  - _id: jar_91ecea65c00b0e4414c54748c1052bc18a7c879f
+    parentId: wrk_3fb66cb8f4334050a54c1910246d0a35
+    modified: 1680793102479
+    created: 1680793102479
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_816a03041cc44a5098f64f80cbf04ce1
+    parentId: wrk_3fb66cb8f4334050a54c1910246d0a35
+    modified: 1681072777755
+    created: 1680793102477
+    fileName: REST API for PENN
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: uts_4a528a944b9d469b9aa050a4f30a7ebb
+    parentId: wrk_3fb66cb8f4334050a54c1910246d0a35
+    modified: 1680793102481
+    created: 1680793102481
+    name: Example Test Suite
+    _type: unit_test_suite
+  - _id: ut_c78ad3182f3648af809534cc6b6f434a
+    parentId: uts_4a528a944b9d469b9aa050a4f30a7ebb
+    modified: 1681079048549
+    created: 1681079037914
+    requestId: req_d2dcca1393634c1aab52a29a08c04c56
+    name: Returns 200
+    code: |-
+      const response1 = await insomnia.send();
+      expect(response1.status).to.equal(200);
+    _type: unit_test
+  - _id: ut_641aedf6bb164bae8bb0120c414766e6
+    parentId: uts_4a528a944b9d469b9aa050a4f30a7ebb
+    modified: 1681079120338
+    created: 1681079113962
+    requestId: req_671ff3ee0bc34a109280808402a8e4ed
+    name: Returns a JSON response
+    code: |-
+      const response1 = await insomnia.send();
+      expect(response1.status).to.equal(200);
+    _type: unit_test

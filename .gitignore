@@ -1,0 +1,6 @@
+.idea/
+.vscode/
+/coverage/
+/vendor/
+.phpunit.result.cache
+settings.ini
