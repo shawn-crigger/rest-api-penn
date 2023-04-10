@@ -1,6 +1,6 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase as PHPUnit_TestCase;
 use Slim\Factory\AppFactory;
 use Slim\Psr7\Factory\RequestFactory;
 use Slim\Psr7\Factory\ResponseFactory;
@@ -8,7 +8,8 @@ use Slim\Psr7\Factory\ServerRequestFactory;
 use Slim\Psr7\Response;
 use Slim\Psr7\Stream;
 
-class CreateUserTest extends TestCase {
+
+class CreateUserTest extends PHPUnit_TestCase {
 
   public function testCreateUserRoute() {
 
@@ -19,7 +20,7 @@ class CreateUserTest extends TestCase {
     $app->post('/users', \App\Actions\UsersCreateAction::class);
     // Create a new GET request to the route
 
-    $val  = rand(1, 100);
+    $val  = rand(1, 1000);
     $name = 'Test User-' . $val;
     $email = 'testuser' . $val . '@gmail.com';
 

@@ -1,6 +1,7 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase as PHPUnit_TestCase;
+use Tests\TestCase as TestCase;
 use Slim\Factory\AppFactory;
 use Slim\Psr7\Factory\RequestFactory;
 use Slim\Psr7\Factory\ResponseFactory;
@@ -16,13 +17,7 @@ class DeleteUserTest extends TestCase {
     // Set up the app
     $app = AppFactory::create();
 
-    $SQL = "SELECT id FROM users ORDER BY id DESC LIMIT 1";
-    $db = new Db();
-    $conn = $db->connect();
-    $stmt = $conn->query($SQL);
-    $lastId = $stmt->fetchColumn();
-    unset($db);
-
+    $lastId = $this->getUserID();    
     $url = '/users/' . $lastId;
     // Add the route to be tested
     $app->delete('/users/{id}', \App\Actions\UsersDeleteAction::class);
