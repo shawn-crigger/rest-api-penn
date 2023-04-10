@@ -2,7 +2,6 @@
 
 This is a very simple REST API using only PDO as the database connection, with only the packages SLIMPHP 4 and PHPUNIT required installed.
 
-
 ## Install and Setup
 
   1. Git clone the repository and cd into the directory containing the repository.
@@ -25,7 +24,7 @@ Create a new `GET` request to `http://localhost:8888/users` and you should get a
 
 ## Route `POST` `/users` to create a new user in the database
 
-Creaet a new POST request to `http://localhost:8888/users`
+Create a new POST request to `http://localhost:8888/users`
 Setup a `multipart/form-data` body with the parameters
 
 - name: User Name of the new user
@@ -38,7 +37,7 @@ Setup your `Headers` with the following headers:
 
 ## Route `POST` `/users/{id}/earn` to add points to a user
 
-Creaet a new POST request to `http://localhost:8888/users/{id}/earn` replace the `id` with the ID of the user you want to change the points to.
+Create a new POST request to `http://localhost:8888/users/{id}/earn` replace the `id` with the ID of the user you want to change the points to.
 
 Setup a `multipart/form-data` body with the parameters
 
@@ -52,7 +51,7 @@ Setup your `Headers` with the following headers:
 
 ## Route `POST` `/users/{id}/redeem` to reduce points from a user
 
-Creaet a new POST request to `http://localhost:8888/users/{id}/redeem` replace the `id` with the ID of the user you want to change the points to.
+Create a new POST request to `http://localhost:8888/users/{id}/redeem` replace the `id` with the ID of the user you want to change the points to.
 
 Setup a `multipart/form-data` body with the parameters
 

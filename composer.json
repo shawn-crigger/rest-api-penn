@@ -6,8 +6,7 @@
         "router",
         "psr7"
     ],
-    "homepage": "http://github.com/shawn-crigger/penn",
-    "license": "MIT",
+    "homepage": "https://github.com/shawn-crigger/rest-api-penn",
     "authors": [
         {
             "name": "Shawn Crigger",
