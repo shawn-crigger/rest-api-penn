@@ -27,8 +27,8 @@ class UserRedeemTest extends TestCase {
 
     $request = (new ServerRequestFactory())->createServerRequest('POST', '/users')->withParsedBody(
       [
-        'name' => 'Bob Lee',
-        'email' => 'bob@gmail.com',
+        'name' => 'Christopher Sammarco',
+        'email' => 'christopher.Sammarco@pennentertainment.com',
       ]
     );
 
