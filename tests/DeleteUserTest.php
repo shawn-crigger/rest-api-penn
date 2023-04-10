@@ -18,7 +18,7 @@ class DeleteUserTest extends TestCase {
     // Add the route to be tested
     $app->delete('/users/{id}', \App\Actions\UsersDeleteAction::class);
     // Create a new GET request to the route
-    $request = (new ServerRequestFactory())->createServerRequest('DELETE', '/users/10');
+    $request = (new ServerRequestFactory())->createServerRequest('DELETE', '/users/2');
 
     // Invoke the application
     $response = $app->handle($request);
