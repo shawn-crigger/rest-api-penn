@@ -8,6 +8,12 @@
   <testsuites>
     <testsuite name="RESTAPI Test Suite">
       <directory>./tests/</directory>
+        <file>./tests/DummyTest.php</file>
+        <file>./tests/CreateUserTest.php</file>
+        <file>./tests/GetUsersTest.php</file>
+        <file>./tests/UserEarnTest.php</file>
+        <file>./tests/UserRedeemTest.php</file>
+        <file>./tests/DeleteUserTest.php</file>
     </testsuite>
   </testsuites>
 </phpunit>
