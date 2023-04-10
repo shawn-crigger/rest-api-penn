@@ -12,7 +12,7 @@
         <file>./tests/GetUsersTest.php</file>
         <file>./tests/UserEarnTest.php</file>
         <file>./tests/UserRedeemTest.php</file>
-
+        <file>./tests/DeleteUserTest.php</file>
     </testsuite>
   </testsuites>
 </phpunit>
