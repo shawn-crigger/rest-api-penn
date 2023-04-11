@@ -41,7 +41,6 @@ Create a new POST request to `http://localhost:8888/users/{id}/earn` replace the
 
 Setup a `multipart/form-data` body with the parameters
 
-- id: id of the user you want to change
 - points: number of points you want to add to the current user's point balance.
 
 Setup your `Headers` with the following headers:
@@ -55,7 +54,6 @@ Create a new POST request to `http://localhost:8888/users/{id}/redeem` replace t
 
 Setup a `multipart/form-data` body with the parameters
 
-- id: id of the user you want to change
 - points: number of points you want to subtract from the current user's point balance.
 
 Setup your `Headers` with the following headers:
