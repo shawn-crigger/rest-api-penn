@@ -1,6 +1,6 @@
 # REST API TEST
 
-This is a very simple REST API using only PDO as the database connection, with only the packages SLIMPHP 4 and PHPUNIT required installed.
+This is a very simple REST API using only PDO as the database connection, with only the packages SLIMPHP 4 and PHPUNIT required installed all this information is included in the Project Wiki with a little more details like example responses. 
 
 ## Install and Setup
 
