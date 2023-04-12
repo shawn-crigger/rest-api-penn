@@ -54,19 +54,20 @@ class Users_Helper
    *
    * @param string $email Email addresss to search for.
    * @param string $name Name to search for.
+   *
    */
   public function getUerByEmailOrName(Response $response, string $email, string $name)
   {
       try {
         $db = new Db();
         $conn = $db->connect();
-        $sql = "SELECT * FROM users WHERE (name = :named OR email = :email)";
+        $sql = "SELECT id FROM users WHERE (name = :named AND email = :email) GROUP BY id";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':named', $name);
         $stmt->bindParam(':email', $email);
         $customers = $stmt->execute();
-        $customers = $stmt->fetchAll(\PDO::FETCH_OBJ);
-        if (is_array($customers) && count($customers) > 0) {
+        $count = $customers->rowCount();
+        if (count($count) > 0) {
           return true;
         }
       } catch (\PDOException $e) {

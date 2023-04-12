@@ -10,7 +10,7 @@ use Psr\Http\Message\ServerRequestInterface as ServerRequest;
 use App\Models\Db;
 
 /**
- * Redeem points for a user. The request should include the number of points to redeem and a description of the transaction.
+ * Redeem points for a user. The request should include the number of points to redeem.
  *
  * @param Request $request
  * @param Response $response
@@ -19,13 +19,10 @@ use App\Models\Db;
  */
 final class UsersRedeemAction
 {
-  private $userReader;
 
-  public function __construct()
-  {
-    // $this->userReader = $userReader;
-  }
-
+  /**
+   * @inheritdoc
+   */
   public function __invoke(ServerRequest $request, Response $response, array $args = []): Response
   {
     $data = $request->getParsedBody();

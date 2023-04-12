@@ -6,9 +6,20 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as ServerRequest;
 use App\Models\Db as Db;
 
+/**
+ * Creates user with 0 points balance.
+ *
+ * @param Request $request
+ * @param Response $response
+ * @param array $args
+ * @return Response
+ */
 final class UsersCreateAction
 {
 
+  /**
+   * @inheritDoc
+   */
   public function __invoke(ServerRequest $request, Response $response, array $args = []): Response
   {
     $data = $request->getParsedBody();

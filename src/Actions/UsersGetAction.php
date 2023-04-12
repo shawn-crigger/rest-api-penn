@@ -6,13 +6,20 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as ServerRequest;
 use App\Models\Db;
 
+/**
+ * Gets all users in the database.
+ *
+ * @param Request $request
+ * @param Response $response
+ * @param array $args
+ * @return Response
+ */
 final class UsersGetAction
 {
 
-  public function __construct()
-  {
-  }
-
+  /**
+   * @inheritdoc
+   */
   public function __invoke(ServerRequest $request, Response $response, array $args = []): Response
   {
     $sql = "SELECT * FROM users";
