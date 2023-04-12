@@ -6,20 +6,19 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as ServerRequest;
 use App\Models\Db as Db;
 
+/**
+ * Delete a user by their ID.
+ *
+ * @param Request $request
+ * @param Response $response
+ * @param array $args
+ * @return Response
+ */
 final class UsersDeleteAction
 {
 
-  public function __construct()
-  {
-  }
-
   /**
-   * Delete a user by their ID.
-   *
-   * @param Request $request
-   * @param Response $response
-   * @param array $args
-   * @return Response
+   * @inheritDoc
    */
   public function __invoke(ServerRequest $request, Response $response, array $args = []): Response
   {

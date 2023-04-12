@@ -20,6 +20,7 @@ class Users_Helper
 
   /**
    * Helper function to fetch user by ID from database.
+   * @param Response $response
    * @param $id
    * @return bool|object
    */
@@ -52,21 +53,23 @@ class Users_Helper
   /**
    * Helper function to fetch user by email from database.
    *
+   * @param Response $response
    * @param string $email Email addresss to search for.
    * @param string $name Name to search for.
+   * @return bool
    */
   public function getUerByEmailOrName(Response $response, string $email, string $name)
   {
       try {
         $db = new Db();
         $conn = $db->connect();
-        $sql = "SELECT * FROM users WHERE (name = :named OR email = :email)";
+        $sql = "SELECT count(id) AS count FROM users WHERE (name = :named AND email = :email) GROUP BY id";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':named', $name);
         $stmt->bindParam(':email', $email);
-        $customers = $stmt->execute();
-        $customers = $stmt->fetchAll(\PDO::FETCH_OBJ);
-        if (is_array($customers) && count($customers) > 0) {
+        $users = $stmt->execute();
+        $users = $stmt->fetchColumn();
+        if ($users > 0) {
           return true;
         }
       } catch (\PDOException $e) {

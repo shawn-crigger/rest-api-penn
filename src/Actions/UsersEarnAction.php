@@ -6,20 +6,19 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as ServerRequest;
 use App\Models\Db;
 
+/**
+ * Earn points for a user. The request should include the number of points to
+ *
+ * @param Request $request
+ * @param Response $response
+ * @param array $args
+ * @return Response
+ */
 final class UsersEarnAction
 {
 
-  public function __construct()
-  {
-  }
-
   /**
-   * Earn points for a user. The request should include the number of points to
-   *
-   * @param Request $request
-   * @param Response $response
-   * @param array $args
-   * @return Response
+   * @inheritdoc
    */
   public function __invoke(ServerRequest $request, Response $response, array $args = []): Response
   {
