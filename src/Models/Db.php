@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Helpers\Errors_Helper;
 use \PDO;
 /**
  * A very simple PDO database class to connect to the database.
@@ -11,19 +11,27 @@ class Db
   /**
    * @var private string Holds the DB Server Host
    */
-  private $host = '';
+  private string $host = '';
   /**
    * @var private string User name to the database.
    */
-  private $user = '';
+  private string $user = '';
   /**
    * @var private string Holds the password to the db user
    */
-  private $pass = '';
+  private string $pass = '';
   /**
    * @var private string Holds the database name
    */
-  private $dbname = '';
+  private string $dbname = '';
+  /**
+   * @var private string Holds the password to the db user
+   */
+  private string $charset = '';
+  /**
+   * @var private string Holds the database name
+   */
+  private string $port = '';
 
   // ------------------------------------------------------------------------
 
@@ -40,6 +48,8 @@ class Db
     $this->user = $settings['DB_USER'];
     $this->pass = $settings['DB_PASS'];
     $this->dbname = $settings['DB_NAME'];
+    $this->port = $settings['DB_PORT'];
+    $this->charset = $settings['DB_CHARSET'];
     return $this;
   }
 
@@ -51,10 +61,10 @@ class Db
    */
   public function connect() : object
   {
-    $conn_str = "mysql:host=$this->host;dbname=$this->dbname";
-    $conn = new PDO($conn_str, $this->user, $this->pass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    $conn = new \PDO("mysql:host={$this->host};dbname={$this->dbname};port={$this->port};charset={$this->charset}", $this->user, $this->pass, [
+      \PDO::ATTR_EMULATE_PREPARES => false,
+      \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
+    ]);
     return $conn;
   }
 }
