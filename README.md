@@ -13,7 +13,7 @@ This is a very simple REST API using only PDO as the database connection, with o
 
 ## Manually testing using POSTMAN or Insomnia
 
-You will receive a JSON response with the keys `success` and `message` for all requests whether the request was successful or failed. The status code will also be set to 400 for invalid parameters, 422 for various errors tht 422 seemed to be the best solution for and 500 for database errors. If they included data like `GET` `/users` the users will be in the `users` key of the JSON output. 
+You will receive a JSON response with the keys `success` and `message` for all requests whether the request was successful or failed. The status code will also be set to 400 for invalid parameters, 422 for various errors tht 422 seemed to be the best solution for and 500 for database errors. If they included data like `GET` `/users` the users will be in the `users` key of the JSON output.
 
 `success` will always return true or false depending on whether the request was successful.
 `message` will always return a description of the request.
